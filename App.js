@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { FlatList, StyleSheet, Text, View } from 'react-native'
-import { ListItem, Avatar } from 'react-native-elements'
+import { FlatList, StyleSheet, View } from 'react-native'
+import CoffeeShop from './CoffeeShop.js'
 import axios from 'axios'
 
 import Constants from 'expo-constants'
@@ -39,20 +39,12 @@ const App = () => {
     }
     fetchData()
   }, [])
-  console.log(data)
+  console.log(data[0])
   return (
     <View style={styles.container}>
       <FlatList
         data={data}
-        renderItem={({ item }) => (
-          <ListItem key={item.name} bottomDivider>
-            <Avatar source={{ uri: item.image_url }} />
-            <ListItem.Content>
-              <ListItem.Title>{item.name}</ListItem.Title>
-              <ListItem.Subtitle>{`${item.location.address1}, ${item.location.city}`}</ListItem.Subtitle>
-            </ListItem.Content>
-          </ListItem>
-        )}
+        renderItem={({ item }) => <CoffeeShop item={item} />}
       />
     </View>
   )
