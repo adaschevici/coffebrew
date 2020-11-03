@@ -1,7 +1,20 @@
-import React from 'react'
-import { View, StyleSheet } from 'react-native'
+import React, { useRef, useEffect } from 'react'
+import { Animated, View, StyleSheet } from 'react-native'
 
-export default () => <View style={styles.ball} />
+export default () => {
+  const springAnim = useRef(new Animated.ValueXY(0, 0)).current
+  useEffect(() => {
+    Animated.spring(springAnim, {
+      toValue: { x: 200, y: 500 },
+      useNativeDriver: true,
+    }).start()
+  })
+  return (
+    <Animated.View style={springAnim.getTranslateTransform()}>
+      <View style={styles.ball} />
+    </Animated.View>
+  )
+}
 
 const styles = StyleSheet.create({
   ball: {
