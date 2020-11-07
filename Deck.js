@@ -1,5 +1,12 @@
-import React, { useRef, useState, useCallback, useEffect } from 'react'
-import { View, Animated, PanResponder, Dimensions } from 'react-native'
+import React, { useRef, useState } from 'react'
+import {
+  ScrollView,
+  View,
+  Animated,
+  PanResponder,
+  Dimensions,
+  StyleSheet,
+} from 'react-native'
 import CoffeeShop from './CoffeeShop'
 
 const SCREEN_WIDTH = Dimensions.get('window').width
@@ -59,20 +66,43 @@ export default ({ data, onSwipeLeft = () => {}, onSwipeRight = () => {} }) => {
       },
     })
   ).current
-  return (
-    <View>
-      {data.map((item, index) => {
-        if (index < currentIndex) return null
-        if (index === currentIndex) {
-          return (
-            <Animated.View style={getCardStyle()} {...panResponder.panHandlers}>
-              <CoffeeShop item={item} />
-            </Animated.View>
-          )
-        }
-
-        return <CoffeeShop item={item} />
-      })}
-    </View>
-  )
+  const elements = data
+    .map((item, index) => {
+      if (index < currentIndex) return null
+      if (index === currentIndex) {
+        return (
+          <Animated.View
+            key={`${item.name}-${index}`}
+            style={[getCardStyle(), styles.cardStyle]}
+            {...panResponder.panHandlers}
+          >
+            <CoffeeShop item={item} />
+          </Animated.View>
+        )
+      } else {
+        return (
+          <View
+            key={`${item.name}-${index}`}
+            style={[
+              styles.cardStyle,
+              { zIndex: -1, marginTop: (index - currentIndex) * 10 },
+            ]}
+          >
+            <CoffeeShop item={item} />
+          </View>
+        )
+      }
+    })
+    .reverse()
+  debugger
+  console.log(elements[0], elements[1])
+  return <View>{elements}</View>
 }
+
+const styles = StyleSheet.create({
+  cardStyle: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+  },
+})
