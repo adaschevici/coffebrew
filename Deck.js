@@ -1,12 +1,13 @@
 import React, { useRef, useState } from 'react'
 import {
-  ScrollView,
   View,
   Animated,
   PanResponder,
   Dimensions,
   StyleSheet,
 } from 'react-native'
+import EmptyDeck from './EmptyDeck'
+import NoMoreCards from './NoMoreCards'
 import CoffeeShop from './CoffeeShop'
 
 const SCREEN_WIDTH = Dimensions.get('window').width
@@ -66,37 +67,44 @@ export default ({ data, onSwipeLeft = () => {}, onSwipeRight = () => {} }) => {
       },
     })
   ).current
-  const elements = data
-    .map((item, index) => {
-      if (index < currentIndex) return null
-      if (index === currentIndex) {
-        return (
-          <Animated.View
-            key={`${item.name}-${index}`}
-            style={[getCardStyle(), styles.cardStyle]}
-            {...panResponder.panHandlers}
-          >
-            <CoffeeShop item={item} />
-          </Animated.View>
-        )
-      } else {
-        return (
-          <View
-            key={`${item.name}-${index}`}
-            style={[
-              styles.cardStyle,
-              { zIndex: -1, marginTop: (index - currentIndex) * 10 },
-            ]}
-          >
-            <CoffeeShop item={item} />
-          </View>
-        )
-      }
-    })
-    .reverse()
-  debugger
-  console.log(elements[0], elements[1])
-  return <View>{elements}</View>
+  return !data.length ? (
+    <EmptyDeck />
+  ) : (
+    <View>
+      {currentIndex < data.length ? (
+        data
+          .map((item, index) => {
+            if (index < currentIndex) return null
+            if (index === currentIndex) {
+              return (
+                <Animated.View
+                  key={`${item.name}-${index}`}
+                  style={[getCardStyle(), styles.cardStyle]}
+                  {...panResponder.panHandlers}
+                >
+                  <CoffeeShop item={item} />
+                </Animated.View>
+              )
+            } else {
+              return (
+                <Animated.View
+                  key={`${item.name}-${index}`}
+                  style={[
+                    styles.cardStyle,
+                    { zIndex: -1, marginTop: (index - currentIndex) * 10 },
+                  ]}
+                >
+                  <CoffeeShop item={item} />
+                </Animated.View>
+              )
+            }
+          })
+          .reverse()
+      ) : (
+        <NoMoreCards />
+      )}
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({

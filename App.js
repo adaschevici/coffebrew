@@ -14,7 +14,7 @@ const api = axios.create({
   },
 })
 
-const ourLocation = {
+const sanFrancisco = {
   latitude: '37.786882',
   longitude: '-122.399972',
 }
@@ -40,7 +40,6 @@ const App = () => {
     }
     fetchData()
   }, [])
-  console.log('Rerendering app')
   return (
     <View style={styles.container}>
       <Deck data={data} />
