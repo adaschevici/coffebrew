@@ -12,7 +12,6 @@ export default {
       backgroundColor: '#ffffff',
     },
     extra: {
-      fact: 'kittens are cool',
       yelpApiKey: process.env.YELP_API_KEY,
     },
     updates: {
