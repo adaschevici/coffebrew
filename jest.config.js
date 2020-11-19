@@ -1,20 +1,16 @@
 module.exports = {
-  preset: 'react-native',
-  // The test environment that will be used for testing
-  testEnvironment: 'jsdom',
-
-  // The glob patterns Jest uses to detect test files
-  testMatch: ['**/__tests__/**/*.js?(x)', '**/?(*.)+(spec|test).js?(x)'],
-
-  // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
-  testPathIgnorePatterns: ['\\\\node_modules\\\\'],
-
-  // This option sets the URL for the jsdom environment. It is reflected in properties such as location.href
-  testURL: 'http://localhost',
-
-  // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
-  transformIgnorePatterns: ['<rootDir>/node_modules/'],
-  transform: {
-    '\\.(js|ts|tsx)$': require.resolve('react-native/jest/preprocessor.js'),
+  preset: 'jest-expo',
+  moduleDirectories: [
+    'node_modules',
+    // add the directory with the test-utils.js file, for example:
+    'utils', // a utility folder
+    __dirname, // the root directory
+  ],
+  moduleNameMapper: {
+    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+      '<rootDir>/__mocks__/fileMock.js',
   },
+  transformIgnorePatterns: [
+    'node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|@sentry/.*)',
+  ],
 }

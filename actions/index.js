@@ -11,12 +11,13 @@ let oldStreet = {
   longitudeDelta: 0.0421,
 }
 
-const api = axios.create({
-  baseURL: 'https://api.yelp.com/v3',
-  headers: {
-    Authorization: `Bearer ${Constants.manifest.extra.yelpApiKey}`,
-  },
-})
+const api = () =>
+  axios.create({
+    baseURL: 'https://api.yelp.com/v3',
+    headers: {
+      Authorization: `Bearer ${Constants.manifest.extra.yelpApiKey}`,
+    },
+  })
 
 export const fetchData = () => {
   return async (dispatch) => {
@@ -31,6 +32,7 @@ export const fetchData = () => {
           ...oldStreet,
         },
       })
+      console.log('Performing request')
 
       dispatch({
         type: types.REQUEST_PLACES_SUCCESS,

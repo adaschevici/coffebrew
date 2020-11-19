@@ -27,7 +27,6 @@ export default ({ data, onSwipeLeft = () => {}, onSwipeRight = () => {} }) => {
       useNativeDriver: true,
     }).start(() => onSwipeComplete(direction))
   }
-  console.log(data)
   const resetPosition = () => {
     Animated.spring(position, {
       toValue: { x: 0, y: 0 },

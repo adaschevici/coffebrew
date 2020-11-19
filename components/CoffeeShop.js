@@ -4,7 +4,7 @@ import { Card, Button } from 'react-native-elements'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 
 export default ({ item }) => (
-  <Card>
+  <Card testID="card-test-id">
     <Card.Title>{item.name}</Card.Title>
     <Card.Divider />
     <Card.Image source={{ uri: item.image_url }} />

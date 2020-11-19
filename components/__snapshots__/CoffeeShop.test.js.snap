@@ -1,0 +1,249 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CoffeeShop Card Test Suite CoffeShop Card Renders As Expected 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderColor": "#e1e8ee",
+      "borderWidth": 1,
+      "margin": 15,
+      "marginBottom": 0,
+      "padding": 15,
+      "shadowColor": "rgba(0,0,0, .2)",
+      "shadowOffset": Object {
+        "height": 0,
+        "width": 0,
+      },
+      "shadowOpacity": 1,
+      "shadowRadius": 1,
+    }
+  }
+  testID="card-test-id"
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#43484d",
+          "fontSize": 18,
+          "fontWeight": "bold",
+          "marginBottom": 15,
+          "textAlign": "center",
+        }
+      }
+      testID="cardTitle"
+    >
+      Molinari Delicatessen
+    </Text>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#bcbbc1",
+          "height": 0.5,
+          "marginBottom": 15,
+        }
+      }
+    />
+    <View
+      accessibilityIgnoresInvertColors={true}
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "overflow": "hidden",
+          "position": "relative",
+        }
+      }
+    >
+      <Image
+        onLoad={[Function]}
+        source={
+          Object {
+            "uri": "https://s3-media3.fl.yelpcdn.com/bphoto/B5vUs6hU1W6UcBQL52v2GQ/o.jpg",
+          }
+        }
+        style={
+          Object {
+            "bottom": 0,
+            "height": 150,
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+            "width": null,
+          }
+        }
+        testID="RNE__Image"
+        theme={
+          Object {
+            "colors": Object {
+              "black": "#242424",
+              "disabled": "hsl(208, 8%, 90%)",
+              "divider": "#bcbbc1",
+              "error": "#ff190c",
+              "grey0": "#393e42",
+              "grey1": "#43484d",
+              "grey2": "#5e6977",
+              "grey3": "#86939e",
+              "grey4": "#bdc6cf",
+              "grey5": "#e1e8ee",
+              "greyOutline": "#bbb",
+              "platform": Object {
+                "android": Object {
+                  "error": "#f44336",
+                  "grey": "rgba(0, 0, 0, 0.54)",
+                  "primary": "#2196f3",
+                  "secondary": "#9C27B0",
+                  "success": "#4caf50",
+                  "warning": "#ffeb3b",
+                },
+                "ios": Object {
+                  "error": "#ff3b30",
+                  "grey": "#7d7d7d",
+                  "primary": "#007aff",
+                  "searchBg": "#dcdce1",
+                  "secondary": "#5856d6",
+                  "success": "#4cd964",
+                  "warning": "#ffcc00",
+                },
+                "web": Object {
+                  "error": "#ff190c",
+                  "grey": "#393e42",
+                  "primary": "#2089dc",
+                  "searchBg": "#303337",
+                  "secondary": "#ca71eb",
+                  "success": "#52c41a",
+                  "warning": "#faad14",
+                },
+              },
+              "primary": "#2089dc",
+              "searchBg": "#303337",
+              "secondary": "#ca71eb",
+              "success": "#52c41a",
+              "warning": "#faad14",
+              "white": "#ffffff",
+            },
+          }
+        }
+        transition={true}
+        transitionDuration={360}
+      />
+      <View
+        accessibilityElementsHidden={true}
+        importantForAccessibility="no-hide-descendants"
+        pointerEvents="none"
+        style={
+          Object {
+            "bottom": 0,
+            "left": 0,
+            "opacity": 1,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#bdbdbd",
+              "height": 150,
+              "justifyContent": "center",
+              "width": null,
+            }
+          }
+          testID="RNE__Image__placeholder"
+        />
+      </View>
+      <View
+        style={
+          Object {
+            "height": 150,
+            "width": null,
+          }
+        }
+      />
+    </View>
+    <Text
+      style={
+        Object {
+          "marginBottom": 10,
+        }
+      }
+    >
+      373 Columbus Ave, San Francisco
+    </Text>
+    <View
+      style={
+        Object {
+          "borderRadius": 3,
+          "overflow": "hidden",
+        }
+      }
+    >
+      <View
+        accessibilityRole="button"
+        accessibilityState={
+          Object {
+            "busy": false,
+            "disabled": false,
+          }
+        }
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#2089dc",
+              "borderColor": "#2089dc",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "marginBottom": 0,
+              "marginLeft": 0,
+              "marginRight": 0,
+              "padding": 8,
+            }
+          }
+        >
+          <Text />
+          <Text
+            style={
+              Object {
+                "color": "white",
+                "fontSize": 18,
+                "paddingVertical": 1,
+                "textAlign": "center",
+              }
+            }
+          >
+            VIEW NOW
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;

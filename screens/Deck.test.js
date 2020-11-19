@@ -1,23 +1,30 @@
 import React from 'react'
-import { render, fireEvent } from '@testing-library/react-native'
-import { businesses } from '../fixtures'
+import { render } from 'test-utils'
+import thunk from 'redux-thunk'
+import businesses from '../fixtures'
+import { createStore, applyMiddleware } from 'redux'
 
 // Components
 import Deck from './Deck'
-import Cards from '../components/Cards'
 
-function setup() {
-  const props = {
-    data: businesses,
-  }
-  const wrapper = render(<Deck />)
-  return { wrapper, props }
-}
+jest.mock('expo-constants', () => ({
+  manifest: {
+    extra: {
+      yelpApiKey: '123',
+    },
+  },
+}))
 
 describe('Deck Test Suite', () => {
+  let fakeState
+  beforeEach(() => {
+    fakeState = {
+      coffeeshops: businesses.businesses,
+    }
+  })
   it('Should have an Cards component', () => {
-    const { wrapper, props } = setup()
-    console.log(wrapper)
-    // console.log()
+    const store = createStore(() => fakeState, applyMiddleware(thunk))
+    const { getAllByTestId } = render(<Deck />, { store })
+    expect(getAllByTestId('card-test-id').length).toEqual(20)
   })
 })
