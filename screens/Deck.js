@@ -5,16 +5,6 @@ import Constants from 'expo-constants'
 import Cards from '../components/Cards'
 import { fetchData } from '../actions'
 
-const sanFrancisco = {
-  latitude: '37.786882',
-  longitude: '-122.399972',
-}
-
-const oldStreet = {
-  latitude: '51.52653',
-  longitude: '-0.08246',
-}
-
 export default () => {
   const dispatch = useDispatch()
   const coffeeshops = useSelector((state) => state.coffeeshops) || []

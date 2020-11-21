@@ -44,6 +44,7 @@ export default () => {
       longitude: location.coords.longitude,
     }
   }
+  console.log(oldStreet)
   return (
     <>
       {!(location === null) && (
